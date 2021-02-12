@@ -5,6 +5,7 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
+import Navbar from './components/NavBar';
 
 import { Detalle } from './views/Detalle';
 import { Home } from './views/Home';
@@ -12,9 +13,10 @@ import { Home } from './views/Home';
 function App() {
   return (
     <Router>
+     <Navbar/>
       <Switch>
         <Route exact path="/home" component = {Home}/>
-        <Route path="/detalle" component = {Detalle}/>
+        <Route path="/detalle/:reqId" component = {Detalle}/>
         <Redirect to="/home"/>
       </Switch>
   </Router>
