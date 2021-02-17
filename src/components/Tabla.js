@@ -8,6 +8,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
 import { Link } from 'react-router-dom';
+import { SelectEstado } from './SelectEstado';
 
 
 export default function Tabla ({useStyles, rows, columns}) {
@@ -53,11 +54,16 @@ export default function Tabla ({useStyles, rows, columns}) {
                                         const value = row[column.id];
                                         return (
                                             <TableCell key={column.id} align={column.align}>
+                                                
                                                 {column.id === 'detalle' 
                                                     ? 
                                                     <Link to ={`./detalle/${ idDetalle }`}>
                                                         {column.format && typeof value === 'number' ? column.format(value) : value}
                                                     </Link>
+                                                    : 
+                                                    column.id === 'estado'
+                                                    ?
+                                                    <SelectEstado  useStyles = { useStyles } value = {value} /> 
                                                     :
                                                     column.format && typeof value === 'number' ? column.format(value) : value
                                                 }

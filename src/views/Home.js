@@ -23,29 +23,30 @@ export const Home = () => {
     }
     
     const rows = [
-        createData('28/12/2020', 437, '6/1/2021', 'Drazile Mabel', 'Daniel Rodolfi' , 'Contaduría General' , 'Pendiente', 'ver', 'ver', 'ver', 'ver'),
-        createData('26/12/2020', 435, '8/1/2021', 'Lelli Alejandra', 'Monica Zornberg', 'Secretaría Administración', 'Financiera En Proceso', 'ver', 'ver', 'ver', 'ver'),
-        createData('23/12/2020', 431, '13/1/2021', 'Lelli Alejandra', 'Santiago De La Rosa', 'Secretaría Legal & Técnica', 'Comprado', 'ver', 'ver', 'ver', 'ver'),
-        createData('28/12/2020', 437, '6/1/2021', 'Drazile Mabel', 'Daniel Rodolfi' , 'Contaduría General' , 'Pendiente', 'ver', 'ver', 'ver', 'ver'),
-        createData('26/12/2020', 435, '8/1/2021', 'Lelli Alejandra', 'Monica Zornberg', 'Secretaría Administración', 'Financiera En Proceso', 'ver', 'ver', 'ver', 'ver'),
-        createData('23/12/2020', 431, '13/1/2021', 'Lelli Alejandra', 'Santiago De La Rosa', 'Secretaría Legal & Técnica', 'Comprado', 'ver', 'ver', 'ver','ver'),
-        createData('28/12/2020', 437, '6/1/2021', 'Drazile Mabel', 'Daniel Rodolfi' , 'Contaduría General' , 'Pendiente', 'ver', 'ver', 'ver', 'ver'),
-        createData('26/12/2020', 435, '8/1/2021', 'Lelli Alejandra', 'Monica Zornberg', 'Secretaría Administración', 'Financiera En Proceso', 'ver', 'ver', 'ver', 'ver'),
-        createData('23/12/2020', 431, '13/1/2021', 'Lelli Alejandra', 'Santiago De La Rosa', 'Secretaría Legal & Técnica', 'Comprado', 'ver', 'ver', 'ver', 'ver'),
-        createData('28/12/2020', 437, '6/1/2021', 'Drazile Mabel', 'Daniel Rodolfi' , 'Contaduría General' , 'Pendiente', 'ver', 'ver', 'ver', 'ver'),
-        createData('26/12/2020', 435, '8/1/2021', 'Lelli Alejandra', 'Monica Zornberg', 'Secretaría Administración', 'Financiera En Proceso', 'ver', 'ver', 'ver', 'ver'),
-        createData('23/12/2020', 431, '13/1/2021', 'Lelli Alejandra', 'Santiago De La Rosa', 'Secretaría Legal & Técnica', 'Comprado', 'ver', 'ver', 'ver','ver'),
-        createData('28/12/2020', 437, '6/1/2021', 'Drazile Mabel', 'Daniel Rodolfi' , 'Contaduría General' , 'Pendiente', 'ver', 'ver', 'ver', 'ver'),
-        createData('26/12/2020', 435, '8/1/2021', 'Lelli Alejandra', 'Monica Zornberg', 'Secretaría Administración', 'Financiera En Proceso', 'ver', 'ver', 'ver', 'ver'),
-        createData('23/12/2020', 431, '13/1/2021', 'Lelli Alejandra', 'Santiago De La Rosa', 'Secretaría Legal & Técnica', 'Comprado', 'ver', 'ver', 'ver', 'ver'),
-        createData('28/12/2020', 437, '6/1/2021', 'Drazile Mabel', 'Daniel Rodolfi' , 'Contaduría General' , 'Pendiente', 'ver', 'ver', 'ver', 'ver'),
-        createData('26/12/2020', 435, '8/1/2021', 'Lelli Alejandra', 'Monica Zornberg', 'Secretaría Administración', 'Financiera En Proceso', 'ver', 'ver', 'ver', 'ver'),
-        createData('23/12/2020', 431, '13/1/2021', 'Lelli Alejandra', 'Santiago De La Rosa', 'Secretaría Legal & Técnica', 'Comprado', 'ver', 'ver', 'ver','ver'),
+        createData('28/12/2020', 437, '6/1/2021', 'Drazile Mabel', 'Daniel Rodolfi' , 'Contaduría General' ,'cancelado', 'ver', 'ver', 'ver', 'ver'),
+        createData('26/12/2020', 435, '8/1/2021', 'Lelli Alejandra', 'Monica Zornberg', 'Secretaría Administración', 'finalizado', 'ver', 'ver', 'ver', 'ver'),
+        createData('23/12/2020', 431, '13/1/2021', 'Lelli Alejandra', 'Santiago De La Rosa', 'Secretaría Legal & Técnica', 'pendiente', 'ver', 'ver', 'ver', 'ver'),
+        createData('28/12/2020', 437, '6/1/2021', 'Drazile Mabel', 'Daniel Rodolfi' , 'Contaduría General', 'cancelado', 'ver', 'ver', 'ver', 'ver'),
+        createData('26/12/2020', 435, '8/1/2021', 'Lelli Alejandra', 'Monica Zornberg', 'Secretaría Administración', 'pendiente',  'ver', 'ver', 'ver', 'ver'),
+        createData('23/12/2020', 431, '13/1/2021', 'Lelli Alejandra', 'Santiago De La Rosa', 'Secretaría Legal & Técnica', 'finalizado',  'ver', 'ver', 'ver','ver'),
+        createData('28/12/2020', 437, '6/1/2021', 'Drazile Mabel', 'Daniel Rodolfi' , 'Contaduría General' , 'cancelado', 'ver', 'ver', 'ver', 'ver'),
+        createData('26/12/2020', 435, '8/1/2021', 'Lelli Alejandra', 'Monica Zornberg', 'Secretaría Administración', 'pendiente',  'ver', 'ver', 'ver', 'ver'),
+        createData('23/12/2020', 431, '13/1/2021', 'Lelli Alejandra', 'Santiago De La Rosa', 'Secretaría Legal & Técnica','pendiente', 'ver', 'ver', 'ver', 'ver'),
+        createData('28/12/2020', 437, '6/1/2021', 'Drazile Mabel', 'Daniel Rodolfi' , 'Contaduría General' , 'cancelado','ver', 'ver', 'ver', 'ver'),
+        createData('26/12/2020', 435, '8/1/2021', 'Lelli Alejandra', 'Monica Zornberg', 'Secretaría Administración', 'pendiente',  'ver', 'ver', 'ver', 'ver'),
+        createData('23/12/2020', 431, '13/1/2021', 'Lelli Alejandra', 'Santiago De La Rosa', 'Secretaría Legal & Técnica', 'finalizado', 'ver', 'ver', 'ver','ver'),
+        createData('28/12/2020', 437, '6/1/2021', 'Drazile Mabel', 'Daniel Rodolfi' , 'Contaduría General' , 'finalizado', 'ver', 'ver', 'ver', 'ver'),
+        createData('26/12/2020', 435, '8/1/2021', 'Lelli Alejandra', 'Monica Zornberg', 'Secretaría Administración', 'pendiente', 'ver', 'ver', 'ver', 'ver'),
+        createData('23/12/2020', 431, '13/1/2021', 'Lelli Alejandra', 'Santiago De La Rosa', 'Secretaría Legal & Técnica', 'finalizado', 'ver', 'ver', 'ver', 'ver'),
+        createData('28/12/2020', 437, '6/1/2021', 'Drazile Mabel', 'Daniel Rodolfi' , 'Contaduría General' , 'cancelado', 'ver', 'ver', 'ver', 'ver'),
+        createData('26/12/2020', 435, '8/1/2021', 'Lelli Alejandra', 'Monica Zornberg', 'Secretaría Administración', 'pendiente',  'ver', 'ver', 'ver', 'ver'),
+        createData('23/12/2020', 431, '13/1/2021', 'Lelli Alejandra', 'Santiago De La Rosa', 'Secretaría Legal & Técnica', 'finalizado', 'ver', 'ver', 'ver','ver'),
     ];
     
-    const useStyles = makeStyles({
+    const useStyles = makeStyles((theme)=>({
         root: {
             width: '100%',
+            
         },
         container: {
             maxHeight: 440,
@@ -54,9 +55,26 @@ export const Home = () => {
         table:{
             backgroundColor: '#424242',
             color: 'white',
-        }
-    });
-    
+        },
+        roott: {
+            display: 'flex',
+            flexDirection: 'column',
+            minHeight: '100vh',
+          },
+          footer: {
+            padding: theme.spacing(3, 2),
+            marginTop: 'auto',
+            backgroundColor:
+              theme.palette.type === 'light' ? theme.palette.grey[200] : theme.palette.grey[800],
+          },
+          formControl: {
+            margin: theme.spacing(1),
+            minWidth: 120,
+          },
+          selectEmpty: {
+            marginTop: theme.spacing(2),
+          },
+    }));
 
     return (
         <>
