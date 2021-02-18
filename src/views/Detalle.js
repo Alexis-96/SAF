@@ -9,7 +9,7 @@ export const Detalle = ({ history }) => {
 
     const  { reqId } = useParams();
 
-    console.log(reqId);
+    console.log("DET", reqId);
 
     const columns = [
         { id: 'cantidad', label: 'Cantidad', minWidth: 20, align: 'center' },
@@ -25,7 +25,7 @@ export const Detalle = ({ history }) => {
     }
 
     const reqs = [
-        {   id: 435,
+        {   id: 1,
             detalle : [
             createData(10, 8, 'NoteBook', '8Mb Disco Solido', 'NoteBook LENOVO SG-1030', '$ 43.000,00', '$ 54.000,00'),
             createData(2, 2, 'Impresora Laser', 'Impresora EPSON TX-105', '$ 8.000,00', '$ 8.250,00'),
