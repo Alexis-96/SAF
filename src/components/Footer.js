@@ -14,7 +14,9 @@ const useStyles = makeStyles((theme) => ({
     width:'100%',
     borderTop: '1px solid #E7E7E7'
   },
-  img:{}   
+  img:{
+    
+  }   
 }));
 
 

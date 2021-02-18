@@ -21,11 +21,15 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     
   },
-  menuButton: {
+  logo: {
     marginRight: theme.spacing(3),
+    marginLeft: '7%',
   },
   title: {
     flexGrow: 1,
+    fontSize: '34px',
+    fontFamily : 'normal normal medium 28px/34px Roboto',
+
   },
 }));
 
@@ -36,13 +40,10 @@ export default function Navbar() {
     <div className={classes.root}>
       <AppBar position="static" className = {classes.appBar}>
         <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon />
-          </IconButton>
+          <img src="/assets/img/iconBanner.png" alt='logo' className={classes.logo} />
           <Typography variant="h5" className={classes.title}>
-            BANDEJA DE GESTION
+            Bandeja de Gestión
           </Typography>
-          <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
     </div>
