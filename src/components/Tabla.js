@@ -26,17 +26,18 @@ export default function Tabla ({useStyles, rows, columns}) {
     };
 
     return (
-        <Paper className={classes.root}>
-            <TableContainer className={classes.container}>
-                <Table stickyHeader aria-label="sticky table">
+        <Paper style={{width: "100%", margin: "auto"}} /*className={classes.root}*/>
+            <TableContainer style={{width: "85%", margin: "auto"}} /*className={classes.container}*/>
+                <Table style={{marginTop: "5%"}} stickyHeader aria-label="sticky table">
                     <TableHead >
                         <TableRow >
-                            {columns.map((column) => (
+                            {columns.map((column, index) => (
                                 <TableCell
                                     className = { classes.table }
                                     key={column.id}
+                                    id={index}
                                     align={column.align}
-                                    style={{ minWidth: column.minWidth }}
+                                    style={{ minWidth: column.minWidth, borderTopLeftRadius: index === 0 && 10, borderTopRightRadius: index === columns.length-1 && 10, backgroundColor: index === 0 ? "#0554F2" : "#CFCFCF4D", color: index === 0 ? "white" : "#313131", fontSize: 14, fontWeight: 'bold', borderRightWidth: index === 0 && 7, borderRightColor: index === 0 && 'white', borderRightStyle: index === 0 && 'solid'}}
                                 >
                                     {column.label}
                                 </TableCell>
@@ -44,16 +45,17 @@ export default function Tabla ({useStyles, rows, columns}) {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
+                        {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row, indexRow) => {
 
                             const idDetalle  = row.numero;
 
                             return (
                                 <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
-                                    {columns.map((column) => {
+                                    {columns.map((column, index) => {
                                         const value = row[column.id];
                                         return (
-                                            <TableCell key={column.id} align={column.align}>
+                                            <TableCell key={column.id} align={column.align}  style={{ minWidth: column.minWidth, color: index === 0 && "#313131", fontWeight: index === 0 && "bold"}}
+                                            >
                                                 
                                                 {column.id === 'detalle' 
                                                     ? 
@@ -63,7 +65,8 @@ export default function Tabla ({useStyles, rows, columns}) {
                                                     : 
                                                     column.id === 'estado'
                                                     ?
-                                                    <SelectEstado  useStyles = { useStyles } value = {value} /> 
+                                                    indexRow === 2 ||  indexRow === 5 ||  indexRow === 7 ? <img src="/enProceso.png" />  : indexRow === 0 ||  indexRow === 4 ||  indexRow === 8 ? <img src="/Cancelado.png" /> : <img src="/Finalizado.png" />
+                                                   
                                                     :
                                                     column.format && typeof value === 'number' ? column.format(value) : value
                                                 }
@@ -85,6 +88,7 @@ export default function Tabla ({useStyles, rows, columns}) {
                 page={page}
                 onChangePage={handleChangePage}
                 onChangeRowsPerPage={handleChangeRowsPerPage}
+                style={{margin: "auto", width: "85%"}}
             />
         </Paper>
     );
