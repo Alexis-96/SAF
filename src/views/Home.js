@@ -78,7 +78,6 @@ export const Home = () => {
 
     return (
         <>
-            <hr/>
             <Tabla 
                 useStyles =  { useStyles } 
                 rows = { rows }
