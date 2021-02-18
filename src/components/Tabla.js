@@ -9,12 +9,23 @@ import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
 import { Link } from 'react-router-dom';
 import { SelectEstado } from './SelectEstado';
+import MoreVertIcon from '@material-ui/icons/MoreVert';
+import {
+    MenuItem,
+    Typography,
+    IconButton
+} from "@material-ui/core";
+import RemoveCircleOutlineIcon from '@material-ui/icons/RemoveCircleOutline';
+import { Tooltip } from "react-tippy";
+import "react-tippy/dist/tippy.css";
+import { useHistory } from 'react-router-dom';
+import '../styles/tabla.css'
 
-
-export default function Tabla ({useStyles, rows, columns}) {
+export default function Tabla({ useStyles, rows, columns }) {
     const classes = useStyles();
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
+    const history = useHistory();
 
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
@@ -25,18 +36,28 @@ export default function Tabla ({useStyles, rows, columns}) {
         setPage(0);
     };
 
+    const verDetalles = (idDetalle) => {
+        console.log("ID DETALLE", idDetalle)
+        history.push(
+            {
+                pathname: '/detalle/' + idDetalle
+            }
+        )
+    }
+
     return (
-        <Paper className={classes.root}>
-            <TableContainer className={classes.container}>
-                <Table stickyHeader aria-label="sticky table">
+        <Paper style={{ width: "100%", margin: "auto" }} /*className={classes.root}*/>
+            <TableContainer style={{ width: "85%", margin: "auto" }} /*className={classes.container}*/>
+                <Table style={{ marginTop: "5%" }} stickyHeader aria-label="sticky table">
                     <TableHead >
                         <TableRow >
-                            {columns.map((column) => (
+                            {columns.map((column, index) => (
                                 <TableCell
-                                    className = { classes.table }
+                                    className={classes.table}
                                     key={column.id}
+                                    id={index}
                                     align={column.align}
-                                    style={{ minWidth: column.minWidth }}
+                                    style={{ minWidth: column.minWidth, borderTopLeftRadius: index === 0 && 10, borderTopRightRadius: index === columns.length - 1 && 10, backgroundColor: index === 0 ? "#0554F2" : "#CFCFCF4D", color: index === 0 ? "white" : "#313131", fontSize: 14, fontWeight: 'bold', borderRightWidth: index === 0 && 7, borderRightColor: index === 0 && 'white', borderRightStyle: index === 0 && 'solid' }}
                                 >
                                     {column.label}
                                 </TableCell>
@@ -44,30 +65,73 @@ export default function Tabla ({useStyles, rows, columns}) {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
-
-                            const idDetalle  = row.numero;
-
+                        {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row, indexRow) => {
+                            const idDetalle = row.id;
                             return (
                                 <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
-                                    {columns.map((column) => {
+                                    {columns.map((column, index) => {
                                         const value = row[column.id];
                                         return (
-                                            <TableCell key={column.id} align={column.align}>
-                                                
-                                                {column.id === 'detalle' 
-                                                    ? 
-                                                    <Link to ={`./detalle/${ idDetalle }`}>
-                                                        {column.format && typeof value === 'number' ? column.format(value) : value}
-                                                    </Link>
-                                                    : 
-                                                    column.id === 'estado'
+                                            <TableCell key={column.id} align={column.align} style={{ minWidth: column.minWidth, color: index === 0 && "#313131", fontWeight: index === 0 && "bold" }}
+                                            >
+
+                                                {column.id === 'actions'
                                                     ?
-                                                    <SelectEstado  useStyles = { useStyles } value = {value} /> 
+                                                    <Tooltip
+                                                        position="left"
+                                                        theme="light"
+                                                        style={{height: 500}}
+                                                        html={<div style={{ pointerEvents: "auto" }}>
+                                                            <MenuItem /*onClick={funcTooltipRecla}*/>
+                                                                <Typography variant="inherit">
+                                                                    Tomar
+                                                                </Typography>
+                                                            </MenuItem>
+                                                            <MenuItem onClick={() => verDetalles(idDetalle)}>
+                                                                <Typography variant="inherit">
+                                                                    Ver Detalle
+                                                                </Typography>
+                                                            </MenuItem>
+                                                            <MenuItem /*onClick={funcTooltipRecla}*/>
+                                                                <Typography variant="inherit">
+                                                                    Ver FID
+                                                                </Typography>
+                                                            </MenuItem>
+                                                            <MenuItem /*onClick={funcTooltipRecla}*/>
+                                                                <Typography variant="inherit">
+                                                                    Ver REQ
+                                                                </Typography>
+                                                            </MenuItem>
+                                                            <MenuItem /*onClick={funcTooltipRecla}*/>
+                                                                <Typography variant="inherit">
+                                                                    Ver eDOC
+                                                                </Typography>
+                                                            </MenuItem>
+                                                            <MenuItem /*onClick={funcTooltipRecla}*/>
+                                                                <Typography variant="inherit">
+                                                                    Ver eEXP
+                                                                </Typography>
+                                                            </MenuItem>
+                                                        </div>}
+                                                        trigger="click">
+                                                        <IconButton iconstyle={{ width: 24, height: 24 }}
+                                                            style={{
+                                                                padding: 0,
+                                                                width: 30,
+                                                                height: 30
+                                                            }}>
+                                                            <MoreVertIcon />
+                                                        </IconButton>
+                                                    </Tooltip>
                                                     :
-                                                    column.format && typeof value === 'number' ? column.format(value) : value
+                                                    column.id === 'estado'
+                                                        ?
+                                                        indexRow === 2 || indexRow === 5 || indexRow === 7 ? <img src="/enProceso.png" /> : indexRow === 0 || indexRow === 4 || indexRow === 8 ? <img src="/Cancelado.png" /> : <img src="/Finalizado.png" />
+
+                                                        :
+                                                        column.format && typeof value === 'number' ? column.format(value) : value
                                                 }
-                                                
+
                                             </TableCell>
                                         );
                                     })}
@@ -85,6 +149,7 @@ export default function Tabla ({useStyles, rows, columns}) {
                 page={page}
                 onChangePage={handleChangePage}
                 onChangeRowsPerPage={handleChangeRowsPerPage}
+                style={{ margin: "auto", width: "85%" }}
             />
         </Paper>
     );

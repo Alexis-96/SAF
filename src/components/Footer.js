@@ -5,9 +5,14 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   footer: {
-    padding: '40px',
+    height: '70px',
     marginTop: '2%',
     backgroundColor: '#29343E',
+    left:'0',
+    position:'sticky',
+    bottom:'0',
+    width:'100%',
+    borderTop: '1px solid #E7E7E7'
   },
   img:{}   
 }));
