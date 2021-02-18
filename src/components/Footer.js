@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '2%',
     backgroundColor: '#29343E',
     left:'0',
-    position:'sticky',
+    position:'fixed',
     bottom:'0',
     width:'100%',
     borderTop: '1px solid #E7E7E7'
@@ -26,8 +26,8 @@ export default function Footer() {
     <div>
       <CssBaseline />
       <footer className={classes.footer}>
-        <Container maxWidth="sm">
-          <img src="/assets/img/footerFinanzas.png"/>
+        <Container style={{position: "absolute", right: 0}} maxWidth="sm">
+          <img style={{position: "absolute", right: "25%"}} src="/assets/img/footerFinanzas.png"/>
         </Container>
       </footer>
     </div>
