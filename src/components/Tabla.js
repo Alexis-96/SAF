@@ -46,9 +46,9 @@ export default function Tabla({ useStyles, rows, columns }) {
     }
 
     return (
-        <Paper style={{ width: "100%", margin: "auto" }} /*className={classes.root}*/>
-            <TableContainer style={{ width: "85%", margin: "auto" }} /*className={classes.container}*/>
-                <Table style={{ marginTop: "1%" }} stickyHeader aria-label="sticky table">
+        <Paper style={{ width: "85%", margin: "auto", marginBottom: "5%", marginTop: "2%" }} /*className={classes.root}*/>
+            <TableContainer style={{ width: "100%", margin: "auto" }} /*className={classes.container}*/>
+                <Table /*style={{ marginTop: "1%" }}*/ stickyHeader aria-label="sticky table">
                     <TableHead >
                         <TableRow >
                             {columns.map((column, index) => (

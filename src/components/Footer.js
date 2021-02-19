@@ -25,13 +25,11 @@ export default function Footer() {
   const classes = useStyles();
 
   return (
-    <div>
-      <CssBaseline />
+
       <footer className={classes.footer}>
         <Container style={{position: "absolute", right: 0}} maxWidth="sm">
           <img style={{position: "absolute", right: "25%"}} src="/assets/img/footerFinanzas.png"/>
         </Container>
       </footer>
-    </div>
   );
 }
