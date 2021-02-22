@@ -57,7 +57,7 @@ export default function Tabla({ useStyles, rows, columns }) {
                                     key={column.id}
                                     id={index}
                                     align={column.align}
-                                    style={{ minWidth: column.minWidth, borderTopLeftRadius: index === 0 && 10, borderTopRightRadius: index === columns.length - 1 && 10, backgroundColor: index === 0 ? "#0554F2" : "#CFCFCF4D", color: index === 0 ? "white" : "#313131", fontSize: 14, fontWeight: 'bold', borderRightWidth: index === 0 && 7, borderRightColor: index === 0 && 'white', borderRightStyle: index === 0 && 'solid' }}
+                                    style={{ minWidth: column.minWidth, borderTopLeftRadius: index === 0 && 10, borderTopRightRadius: index === columns.length - 1 && 10, backgroundColor: index === 0 ? "#004d9a" : "#CFCFCF4D", color: index === 0 ? "white" : "#313131", fontSize: 14, fontWeight: 'bold', borderRightWidth: index === 0 && 7, borderRightColor: index === 0 && 'white', borderRightStyle: index === 0 && 'solid' }}
                                 >
                                     {column.label}
                                 </TableCell>
@@ -72,7 +72,7 @@ export default function Tabla({ useStyles, rows, columns }) {
                                     {columns.map((column, index) => {
                                         const value = row[column.id];
                                         return (
-                                            <TableCell key={column.id} align={column.align} style={{ minWidth: column.minWidth, color: index === 0 && "#313131", fontWeight: index === 0 && "bold" }}
+                                            <TableCell key={column.id} align={column.align} style={{ minWidth: column.minWidth, maxWidth: column.maxWidth, color: index === 0 && "#313131", fontWeight: index === 0 && "bold" }}
                                             >
 
                                                 {column.id === 'actions'

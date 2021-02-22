@@ -4,6 +4,8 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import Tabla from '../components/Tabla';
 import Button from '@material-ui/core/Button';
+import Footer from '../components/Footer';
+import OrdenCompra from '../components/OrdenCompra';
 
 export const Detalle = ({ history }) => {
 
@@ -35,14 +37,14 @@ export const Detalle = ({ history }) => {
             createData(5, 4, 'Mouse a Laser', 'Mouser a Laser logitch', '$ 800', '$ 1100')
         ]
         },
-        {   id: 437,
+        {   id: 2,
             detalle : [
             createData(10, 8, 'NoteBook', '8Mb Disco Solido', 'NoteBook LENOVO SG-1030', '$ 43.000,00', '$ 54.000,00'),
             createData(2, 2, 'Impresora Laser', 'Impresora EPSON TX-105', '$ 8.000,00', '$ 8.250,00'),
             createData(5, 4, 'Mouse a Laser', 'Mouser a Laser logitch', '$ 800', '$ 1100')
         ]
         },
-        {   id: 431,
+        {   id: 3,
             detalle : [
             createData(10, 8, 'NoteBook', '8Mb Disco Solido', 'NoteBook LENOVO SG-1030', '$ 43.000,00', '$ 54.000,00'),
             createData(2, 2, 'Impresora Laser', 'Impresora EPSON TX-105', '$ 8.000,00', '$ 8.250,00'),
@@ -94,8 +96,10 @@ export const Detalle = ({ history }) => {
     
     return (
         <>
-            <hr/>
-            <h1>NúmeroReq: {reqId}</h1>
+            {/* <hr/>
+            <h1>NúmeroReq: {reqId}</h1> */}
+            <OrdenCompra/>
+
             <Tabla
                 useStyles =  { useStyles } 
                 rows = { req.detalle }
@@ -109,7 +113,7 @@ export const Detalle = ({ history }) => {
                 EMITIR Solicitud Compra
             </Button>
             
-            
+            <Footer/>
         </>
     )
 }
