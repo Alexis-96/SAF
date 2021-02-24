@@ -7,8 +7,6 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
-import { Link } from 'react-router-dom';
-import { SelectEstado } from './SelectEstado';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import {
     MenuItem,
@@ -19,7 +17,9 @@ import RemoveCircleOutlineIcon from '@material-ui/icons/RemoveCircleOutline';
 import { Tooltip } from "react-tippy";
 import "react-tippy/dist/tippy.css";
 import { useHistory } from 'react-router-dom';
-import '../styles/tabla.css'
+import '../styles/tabla.css';
+import VisibilityIcon from '@material-ui/icons/Visibility';
+import PanToolIcon from '@material-ui/icons/PanTool';
 
 export default function Tabla({ useStyles, rows, columns }) {
     const classes = useStyles();
@@ -77,21 +77,22 @@ export default function Tabla({ useStyles, rows, columns }) {
 
                                                 {column.id === 'actions'
                                                     ?
+                                                    <>
+                                                    <IconButton aria-label="tomar">
+                                                        <PanToolIcon 
+                                                            color='primary'
+                                                        />
+                                                    </IconButton>
+                                                    <IconButton aria-label="ver" onClick={() => verDetalles(idDetalle)}>
+                                                        <VisibilityIcon 
+                                                            color='primary'
+                                                        />
+                                                    </IconButton>
                                                     <Tooltip
                                                         position="left"
                                                         theme="light"
                                                         style={{height: 500}}
                                                         html={<div style={{ pointerEvents: "auto" }}>
-                                                            <MenuItem /*onClick={funcTooltipRecla}*/>
-                                                                <Typography variant="inherit">
-                                                                    Tomar
-                                                                </Typography>
-                                                            </MenuItem>
-                                                            <MenuItem onClick={() => verDetalles(idDetalle)}>
-                                                                <Typography variant="inherit">
-                                                                    Ver Detalle
-                                                                </Typography>
-                                                            </MenuItem>
                                                             <MenuItem /*onClick={funcTooltipRecla}*/>
                                                                 <Typography variant="inherit">
                                                                     Ver FID
@@ -123,6 +124,7 @@ export default function Tabla({ useStyles, rows, columns }) {
                                                             <MoreVertIcon />
                                                         </IconButton>
                                                     </Tooltip>
+                                                    </>
                                                     :
                                                     column.id === 'estado'
                                                         ?
