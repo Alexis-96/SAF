@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Paper from '@material-ui/core/Paper';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -20,22 +20,20 @@ import { useHistory } from 'react-router-dom';
 import '../styles/tabla.css';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import PanToolIcon from '@material-ui/icons/PanTool';
-import { useSortTable } from '../hooks/useSortTable';
 import DoneSharpIcon from '@material-ui/icons/DoneSharp';
 import CachedSharpIcon from '@material-ui/icons/CachedSharp';
 import CloseSharpIcon from '@material-ui/icons/CloseSharp';
 
-export default function Tabla({ useStyles, rows, columns }) {
+export default function Tabla({ useStyles, rows, columns,list,setList,sort }) {
     const classes = useStyles();
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
     const history = useHistory();
 
-    const [list, setList, sort] = useSortTable(rows, 'fechaSolicitud');
-
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
     };
+
 
     const ordenar = (param) => {
         let newSortedList = sort(param)

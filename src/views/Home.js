@@ -2,6 +2,8 @@ import React from 'react';
 import Tabla from '../components/Tabla';
 import { makeStyles } from '@material-ui/core/styles';
 import Footer from '../components/Footer';
+import FiltroTablaHome from '../components/FiltroTablaHome';
+import { useSortTable } from '../hooks/useSortTable';
 
 export const Home = () => {
 
@@ -86,12 +88,21 @@ export const Home = () => {
         },
     }));
 
+    const [list, setList, sort] = useSortTable(rows, 'fechaSolicitud');
+
     return (
         <>
+            <FiltroTablaHome
+                list = {list}
+                setList = {setList}
+            />
             <Tabla
                 useStyles={useStyles}
                 rows={rows}
                 columns={columns}
+                list = {list}
+                setList = {setList}
+                sort = {sort}
             />
             <Footer/>
         </>
