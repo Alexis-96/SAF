@@ -20,6 +20,10 @@ import { useHistory } from 'react-router-dom';
 import '../styles/tabla.css';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import PanToolIcon from '@material-ui/icons/PanTool';
+import { useSortTable } from '../hooks/useSortTable';
+import DoneSharpIcon from '@material-ui/icons/DoneSharp';
+import CachedSharpIcon from '@material-ui/icons/CachedSharp';
+import CloseSharpIcon from '@material-ui/icons/CloseSharp';
 
 export default function Tabla({ useStyles, rows, columns }) {
     const classes = useStyles();
@@ -27,9 +31,17 @@ export default function Tabla({ useStyles, rows, columns }) {
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
     const history = useHistory();
 
+    const [list, setList, sort] = useSortTable(rows, 'fechaSolicitud');
+
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
     };
+
+    const ordenar = (param) => {
+        let newSortedList = sort(param)
+        if (newSortedList[0] === list[0]) newSortedList = sort(param, true)
+        setList(newSortedList)
+    }
 
     const handleChangeRowsPerPage = (event) => {
         setRowsPerPage(+event.target.value);
@@ -52,7 +64,9 @@ export default function Tabla({ useStyles, rows, columns }) {
                     <TableHead >
                         <TableRow >
                             {columns.map((column, index) => (
+
                                 <TableCell
+                                    onClick={() => ordenar(column.id)}
                                     className={classes.table}
                                     key={column.id}
                                     id={index}
@@ -61,11 +75,12 @@ export default function Tabla({ useStyles, rows, columns }) {
                                 >
                                     {column.label}
                                 </TableCell>
+
                             ))}
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row, indexRow) => {
+                        {list.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row, indexRow) => {
                             const idDetalle = row.id;
                             return (
                                 <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
@@ -78,61 +93,94 @@ export default function Tabla({ useStyles, rows, columns }) {
                                                 {column.id === 'actions'
                                                     ?
                                                     <>
-                                                    <IconButton aria-label="tomar">
-                                                        <PanToolIcon 
-                                                            color='primary'
-                                                        />
-                                                    </IconButton>
-                                                    <IconButton aria-label="ver" onClick={() => verDetalles(idDetalle)}>
-                                                        <VisibilityIcon 
-                                                            color='primary'
-                                                        />
-                                                    </IconButton>
-                                                    <Tooltip
-                                                        position="left"
-                                                        theme="light"
-                                                        style={{height: 500}}
-                                                        html={<div style={{ pointerEvents: "auto" }}>
-                                                            <MenuItem /*onClick={funcTooltipRecla}*/>
-                                                                <Typography variant="inherit">
-                                                                    Ver FID
-                                                                </Typography>
-                                                            </MenuItem>
-                                                            <MenuItem /*onClick={funcTooltipRecla}*/>
-                                                                <Typography variant="inherit">
-                                                                    Ver REQ
-                                                                </Typography>
-                                                            </MenuItem>
-                                                            <MenuItem /*onClick={funcTooltipRecla}*/>
-                                                                <Typography variant="inherit">
-                                                                    Ver eDOC
-                                                                </Typography>
-                                                            </MenuItem>
-                                                            <MenuItem /*onClick={funcTooltipRecla}*/>
-                                                                <Typography variant="inherit">
-                                                                    Ver eEXP
-                                                                </Typography>
-                                                            </MenuItem>
-                                                        </div>}
-                                                        trigger="click">
-                                                        <IconButton iconstyle={{ width: 24, height: 24 }}
-                                                            style={{
-                                                                padding: 0,
-                                                                width: 30,
-                                                                height: 30
-                                                            }}>
-                                                            <MoreVertIcon />
+                                                        <IconButton aria-label="tomar">
+                                                            <PanToolIcon
+                                                                color='primary'
+                                                            />
                                                         </IconButton>
-                                                    </Tooltip>
+                                                        <IconButton aria-label="ver" onClick={() => verDetalles(idDetalle)}>
+                                                            <VisibilityIcon
+                                                                color='primary'
+                                                            />
+                                                        </IconButton>
+                                                        <Tooltip
+                                                            position="left"
+                                                            theme="light"
+                                                            style={{ height: 500 }}
+                                                            html={<div style={{ pointerEvents: "auto" }}>
+                                                                <MenuItem /*onClick={funcTooltipRecla}*/>
+                                                                    <Typography variant="inherit">
+                                                                        Ver FID
+                                                                </Typography>
+                                                                </MenuItem>
+                                                                <MenuItem /*onClick={funcTooltipRecla}*/>
+                                                                    <Typography variant="inherit">
+                                                                        Ver REQ
+                                                                </Typography>
+                                                                </MenuItem>
+                                                                <MenuItem /*onClick={funcTooltipRecla}*/>
+                                                                    <Typography variant="inherit">
+                                                                        Ver eDOC
+                                                                </Typography>
+                                                                </MenuItem>
+                                                                <MenuItem /*onClick={funcTooltipRecla}*/>
+                                                                    <Typography variant="inherit">
+                                                                        Ver eEXP
+                                                                </Typography>
+                                                                </MenuItem>
+                                                            </div>}
+                                                            trigger="click">
+                                                            <IconButton iconstyle={{ width: 24, height: 24 }}
+                                                                style={{
+                                                                    padding: 0,
+                                                                    width: 30,
+                                                                    height: 30
+                                                                }}>
+                                                                <MoreVertIcon />
+                                                            </IconButton>
+                                                        </Tooltip>
                                                     </>
                                                     :
-                                                    column.id === 'estado'
+                                                    column.id === 'estado' && value === 'finalizado'
                                                         ?
-                                                        indexRow === 2 || indexRow === 5 || indexRow === 7 ? <img src="/enProceso.png" /> : indexRow === 0 || indexRow === 4 || indexRow === 8 ? <img src="/Cancelado.png" /> : <img src="/Finalizado.png" />
-
+                                                        <>
+                                                            <DoneSharpIcon
+                                                                color='primary'
+                                                            />
+                                                            <Typography variant="inherit" >
+                                                                FINALIZADO
+                                                            </Typography>
+                                                        </>
+                                                        :
+                                                        column.id === 'estado' && value === 'pendiente'
+                                                        ?
+                                                        <>
+                                                            <CachedSharpIcon
+                                                                color='primary'
+                                                            />
+                                                            <Typography variant="inherit" >
+                                                                PENDIENTE
+                                                            </Typography>
+                                                        </>
+                                                        :
+                                                        column.id === 'estado' && value === 'cancelado'
+                                                        ?
+                                                        <>
+                                                            <CloseSharpIcon
+                                                                color='primary'
+                                                            />
+                                                            <Typography variant="inherit" >
+                                                                CANCELADO
+                                                            </Typography>
+                                                        </>
                                                         :
                                                         column.format && typeof value === 'number' ? column.format(value) : value
                                                 }
+                                                {/* column.id === 'estado'
+                                                        ?
+                                                        indexRow === 2 || indexRow === 5 || indexRow === 7 ? <img src="/enProceso.png" /> : indexRow === 0 || indexRow === 4 || indexRow === 8 ? <img src="/Cancelado.png" /> : <img src="/Finalizado.png" />
+
+                                                        : */}
 
                                             </TableCell>
                                         );

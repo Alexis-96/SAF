@@ -21,33 +21,47 @@ export const Home = () => {
     }
 
     const rows = [
-        createData('1', 'Drazile Mabel Drazile Mbel Drazile Mabel  Drazile Mbel Drazile Mabel  ', 'Contaduría General' , '28/12/2020' ,'6/1/2021 ', 'cancelado', 'Daniel Rodolfi', 'actions'),
-        createData('2', 'Perez Alberto Ramon Dias', 'Secretaría Administración Financiera' , '26/12/2020' ,'8/1/2021', 'cancelado', 'Monica Zornberg', 'actions'),
-        createData('3', 'Lelli Alejandra', 'Secretaría Legal & Técnica' , '23/12/2020' ,'13/1/2021', 'cancelado', 'Santiago De La Rosa', 'actions'),
-        createData('4', 'Drazile Mabel Drazile Mbel Drazile Mabel  Drazile Mbel Drazile Mabel', 'Contaduría General' , '28/12/2020' ,'6/1/2021 ', 'cancelado', 'Daniel Rodolfi', 'actions'),
-        createData('5', 'Perez Alberto Ramon Dias', 'Secretaría Administración Financiera' , '26/12/2020' ,'8/1/2021', 'cancelado', 'Monica Zornberg', 'actions'),
-        createData('6', 'Lelli Alejandra', 'Secretaría Legal & Técnica' , '23/12/2020' ,'13/1/2021', 'cancelado', 'Santiago De La Rosa', 'actions'),
-        createData('7', 'Drazile Mabel Drazile Mbel Drazile Mabel  Drazile Mbel Drazile Mabel', 'Contaduría General' , '28/12/2020' ,'6/1/2021 ', 'cancelado', 'Daniel Rodolfi', 'actions'),
-        createData('8', 'Perez Alberto Ramon Dias', 'Secretaría Administración Financiera' , '26/12/2020' ,'8/1/2021', 'cancelado', 'Monica Zornberg', 'actions'),
-        createData('9', 'Lelli Alejandra', 'Secretaría Legal & Técnica' , '23/12/2020' ,'13/1/2021', 'cancelado', 'Santiago De La Rosa', 'actions'),
-        createData('10', 'Drazile Mabel Drazile Mbel Drazile Mabel  Drazile Mbel Drazile Mabel', 'Contaduría General' , '28/12/2020' ,'6/1/2021 ', 'cancelado', 'Daniel Rodolfi', 'actions'),
-        createData('2', 'Perez Alberto Ramon Dias', 'Secretaría Administración Financiera' , '26/12/2020' ,'8/1/2021', 'cancelado', 'Monica Zornberg', 'actions'),
-        createData('3', 'Lelli Alejandra', 'Secretaría Legal & Técnica' , '23/12/2020' ,'13/1/2021', 'cancelado', 'Santiago De La Rosa', 'actions'),
-        createData('1', 'Drazile Mabel Drazile Mbel Drazile Mabel  Drazile Mbel Drazile Mabel', 'Contaduría General' , '28/12/2020' ,'6/1/2021 ', 'cancelado', 'Daniel Rodolfi', 'actions'),
-        createData('2', 'Perez Alberto Ramon Dias', 'Secretaría Administración Financiera' , '26/12/2020' ,'8/1/2021', 'cancelado', 'Monica Zornberg', 'actions'),
-        createData('3', 'Lelli Alejandra', 'Secretaría Legal & Técnica' , '23/12/2020' ,'13/1/2021', 'cancelado', 'Santiago De La Rosa', 'actions'),
-        createData('1', 'Drazile Mabel Drazile Mbel Drazile Mabel  Drazile Mbel Drazile Mabel', 'Contaduría General' , '28/12/2020' ,'6/1/2021 ', 'cancelado', 'Daniel Rodolfi', 'actions'),
-        createData('2', 'Perez Alberto Ramon Dias', 'Secretaría Administración Financiera' , '26/12/2020' ,'8/1/2021', 'cancelado', 'Monica Zornberg', 'actions'),
-        createData('3', 'Lelli Alejandra', 'Secretaría Legal & Técnica' , '23/12/2020' ,'13/1/2021', 'cancelado', 'Santiago De La Rosa', 'actions'),
-        createData('1', 'Drazile Mabel Drazile Mbel Drazile Mabel  Drazile Mbel Drazile Mabel', 'Contaduría General' , '28/12/2020' ,'6/1/2021 ', 'cancelado', 'Daniel Rodolfi', 'actions'),
-        createData('2', 'Perez Alberto Ramon Dias', 'Secretaría Administración Financiera' , '26/12/2020' ,'8/1/2021', 'cancelado', 'Monica Zornberg', 'actions'),
-        createData('3', 'Lelli Alejandra', 'Secretaría Legal & Técnica' , '23/12/2020' ,'13/1/2021', 'cancelado', 'Santiago De La Rosa', 'actions'),
-        createData('3', 'Lelli Alejandra', 'Secretaría Legal & Técnica' , '23/12/2020' ,'13/1/2021', 'cancelado', 'Santiago De La Rosa', 'actions'),
-        createData('1', 'Drazile Mabel Drazile Mbel Drazile Mabel  Drazile Mbel Drazile Mabel', 'Contaduría General' , '28/12/2020' ,'6/1/2021 ', 'cancelado', 'Daniel Rodolfi', 'actions'),
-        createData('2', 'Perez Alberto Ramon Dias', 'Secretaría Administración Financiera' , '26/12/2020' ,'8/1/2021', 'cancelado', 'Monica Zornberg', 'actions'),
-        createData('3', 'Lelli Alejandra', 'Secretaría Legal & Técnica' , '23/12/2020' ,'13/1/2021', 'cancelado', 'Santiago De La Rosa', 'actions'),
+        createData(1, 'Drazile Mabel Drazile Mbel Drazile Mabel  Drazile Mbel Drazile Mabel  ', 'Contaduría General' , '28/12/2020' ,'6/1/2021 ', 'cancelado', 'Daniel Rodolfi', 'actions'),
+        createData(2, 'Perez Alberto Ramon Dias', 'Secretaría Administración Financiera' , '26/12/2020' ,'8/1/2021', 'pendiente', 'Monica Zornberg', 'actions'),
+        createData(3, 'Lelli Alejandra', 'Secretaría Legal & Técnica' , '23/12/2020' ,'13/1/2021', 'cancelado', 'Santiago De La Rosa', 'actions'),
+        createData(4, 'Drazile Mabel Drazile Mbel Drazile Mabel  Drazile Mbel Drazile Mabel', 'Contaduría General' , '28/12/2020' ,'6/1/2021 ', 'cancelado', 'Daniel Rodolfi', 'actions'),
+        createData(5, 'Perez Alberto Ramon Dias', 'Secretaría Administración Financiera' , '26/12/2020' ,'8/1/2021', 'finalizado', 'Monica Zornberg', 'actions'),
+        createData(6, 'Lelli Alejandra', 'Secretaría Legal & Técnica' , '23/12/2020' ,'13/1/2021', 'cancelado', 'Santiago De La Rosa', 'actions'),
+        createData(7, 'Drazile Mabel Drazile Mbel Drazile Mabel  Drazile Mbel Drazile Mabel', 'Contaduría General' , '28/12/2020' ,'6/1/2021 ', 'cancelado', 'Daniel Rodolfi', 'actions'),
+        createData(8, 'Perez Alberto Ramon Dias', 'Secretaría Administración Financiera' , '26/12/2020' ,'8/1/2021', 'finalizado', 'Monica Zornberg', 'actions'),
+        createData(9, 'Lelli Alejandra', 'Secretaría Legal & Técnica' , '23/12/2020' ,'13/1/2021', 'finalizado', 'Santiago De La Rosa', 'actions'),
+        createData(10, 'Drazile Mabel Drazile Mbel Drazile Mabel  Drazile Mbel Drazile Mabel', 'Contaduría General' , '28/12/2020' ,'6/1/2021 ', 'cancelado', 'Daniel Rodolfi', 'actions'),
+        createData(11, 'Perez Alberto Ramon Dias', 'Secretaría Administración Financiera' , '26/12/2020' ,'8/1/2021', 'pendiente', 'Monica Zornberg', 'actions'),
+        createData(2, 'Lelli Alejandra', 'Secretaría Legal & Técnica' , '23/12/2020' ,'13/1/2021', 'cancelado', 'Santiago De La Rosa', 'actions'),
+        createData(13, 'Drazile Mabel Drazile Mbel Drazile Mabel  Drazile Mbel Drazile Mabel', 'Contaduría General' , '28/12/2020' ,'6/1/2021 ', 'cancelado', 'Daniel Rodolfi', 'actions'),
+        createData(14, 'Perez Alberto Ramon Dias', 'Secretaría Administración Financiera' , '26/12/2020' ,'8/1/2021', 'finalizado', 'Monica Zornberg', 'actions'),
+        createData(15, 'Lelli Alejandra', 'Secretaría Legal & Técnica' , '23/12/2020' ,'13/1/2021', 'cancelado', 'Santiago De La Rosa', 'actions'),
+        createData(16, 'Drazile Mabel Drazile Mbel Drazile Mabel  Drazile Mbel Drazile Mabel', 'Contaduría General' , '28/12/2020' ,'6/1/2021 ', 'cancelado', 'Daniel Rodolfi', 'actions'),
+        createData(17, 'Perez Alberto Ramon Dias', 'Secretaría Administración Financiera' , '26/12/2020' ,'8/1/2021', 'pendiente', 'Monica Zornberg', 'actions'),
+        createData(18, 'Lelli Alejandra', 'Secretaría Legal & Técnica' , '23/12/2020' ,'13/1/2021', 'cancelado', 'Santiago De La Rosa', 'actions'),
+        createData(19, 'Drazile Mabel Drazile Mbel Drazile Mabel  Drazile Mbel Drazile Mabel', 'Contaduría General' , '28/12/2020' ,'6/1/2021 ', 'cancelado', 'Daniel Rodolfi', 'actions'),
+        createData(20, 'Perez Alberto Ramon Dias', 'Secretaría Administración Financiera' , '26/12/2020' ,'8/1/2021', 'pendiente', 'Monica Zornberg', 'actions'),
+        createData(21, 'Lelli Alejandra', 'Secretaría Legal & Técnica' , '23/12/2020' ,'13/1/2021', 'cancelado', 'Santiago De La Rosa', 'actions'),
+        createData(22, 'Lelli Alejandra', 'Secretaría Legal & Técnica' , '23/12/2020' ,'13/1/2021', 'finalizado', 'Santiago De La Rosa', 'actions'),
+        createData(23, 'Drazile Mabel Drazile Mbel Drazile Mabel  Drazile Mbel Drazile Mabel', 'Contaduría General' , '28/12/2020' ,'6/1/2021 ', 'cancelado', 'Daniel Rodolfi', 'actions'),
+        createData(24, 'Perez Alberto Ramon Dias', 'Secretaría Administración Financiera' , '26/12/2020' ,'8/1/2021', 'pendiente', 'Monica Zornberg', 'actions'),
+        createData(25, 'Lelli Alejandra', 'Secretaría Legal & Técnica' , '23/12/2020' ,'13/1/2021', 'finalizado', 'Santiago De La Rosa', 'actions'),
       
     ];
+   /*  function createData(nombre,edad, actions) {
+        return {nombre,edad, actions};
+    }
+    const columns = [
+        { id: 'nombre', label: 'NOMBRE', minWidth: 50, align: 'center'},
+        { id: 'edad', label: 'EDAD', minWidth: 50, align: 'center'},
+        { id: 'actions', label: '', minWidth: 50, align: 'center' }
+    ]
+
+    const rows = [
+        createData('juan', 50, 'actions'),
+        createData('alberto', 40, 'actions'),
+        createData('aragor', 2000, 'actions'),
+    ] */
 
     const useStyles = makeStyles((theme) => ({
         root: {
