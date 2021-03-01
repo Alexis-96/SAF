@@ -23,8 +23,9 @@ import PanToolIcon from '@material-ui/icons/PanTool';
 import DoneSharpIcon from '@material-ui/icons/DoneSharp';
 import CachedSharpIcon from '@material-ui/icons/CachedSharp';
 import CloseSharpIcon from '@material-ui/icons/CloseSharp';
+import PanToolOutlinedIcon from '@material-ui/icons/PanToolOutlined';
 
-export default function Tabla({ useStyles, rows, columns,list,setList,sort }) {
+export default function Tabla({ useStyles,columns,list,setList,sort }) {
     const classes = useStyles();
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
@@ -53,6 +54,12 @@ export default function Tabla({ useStyles, rows, columns,list,setList,sort }) {
                 pathname: '/detalle/' + idDetalle
             }
         )
+    }
+    const setTomar = (e)=>{
+        console.log(e)
+        e.tomar = 'si'
+        console.log(e)
+        
     }
 
     return (
@@ -86,16 +93,32 @@ export default function Tabla({ useStyles, rows, columns,list,setList,sort }) {
                                         const value = row[column.id];
                                         return (
                                             <TableCell key={column.id} align={column.align} style={{ minWidth: column.minWidth, maxWidth: column.maxWidth, color: index === 0 && "#313131", fontWeight: index === 0 && "bold" }}
-                                            >
-
-                                                {column.id === 'actions'
+                                            >    
+                                                {
+                                                    column.id === 'actions'
                                                     ?
-                                                    <>
-                                                        <IconButton aria-label="tomar">
+
+                                                    <>{row.tomar === 'no'
+                                                        ?
+                                                        <IconButton 
+                                                            aria-label="tomar"
+                                                           
+                                                        >
                                                             <PanToolIcon
+                                                                color='primary'
+                                                                
+                                                            />
+                                                        </IconButton>
+                                                        :
+                                                        <IconButton aria-label="tomar"
+                                                         onClick = {() => setTomar(row)}>
+
+                                                            <PanToolOutlinedIcon
                                                                 color='primary'
                                                             />
                                                         </IconButton>
+                                                        }
+
                                                         <IconButton aria-label="ver" onClick={() => verDetalles(idDetalle)}>
                                                             <VisibilityIcon
                                                                 color='primary'
@@ -192,7 +215,7 @@ export default function Tabla({ useStyles, rows, columns,list,setList,sort }) {
             <TablePagination
                 rowsPerPageOptions={[10, 25, 100]}
                 component="div"
-                count={rows.length}
+                count={list.length}
                 rowsPerPage={rowsPerPage}
                 page={page}
                 onChangePage={handleChangePage}

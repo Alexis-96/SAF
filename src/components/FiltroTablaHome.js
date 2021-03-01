@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const FiltroTablaHome = ({list, setList}) => {
+const FiltroTablaHome = ({rows, setList}) => {
     const classes = useStyles();
     const [filtro, setFiltro] = useState('');
 
@@ -25,20 +25,15 @@ const FiltroTablaHome = ({list, setList}) => {
         filtrar(event.target.value);
     };
 
-    const columns = [
-        { id: 'nombre', estado: 'pendiente'},
-        { id: 'nombre', estado: 'pendiente'},
-        { id: 'edad', estado: 'cancelado'},
-        { id: 'actions', estado: 'finalizado' }
-    ];
 
     const filtrar = (estado) =>{
-        const arrayFiltrado = list.filter(fila =>{
-            if(fila.estado === estado){
-                return fila
-            }
-        })
-        setList(arrayFiltrado);
+        if(estado === 'todos') {
+            setList(rows); 
+        }
+        else{
+            const arrayFiltrado = rows.filter(fila => fila.estado === estado)
+            setList(arrayFiltrado);
+        }
     }
     return (
         <div>
@@ -49,7 +44,7 @@ const FiltroTablaHome = ({list, setList}) => {
                     id="filtro"
                     value={filtro}
                     onChange={handleChange}
-                >
+                >   <MenuItem value='todos'>Todos</MenuItem>
                     <MenuItem value='pendiente'>Pendiente</MenuItem>
                     <MenuItem value='cancelado'>Cancelado</MenuItem>
                     <MenuItem value='finalizado'>Finalizado</MenuItem>
